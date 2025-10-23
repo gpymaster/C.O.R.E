@@ -1,0 +1,93 @@
+{
+    "actions": [
+        {
+            "action_name": "play_song",
+            "description": "User wants to play some music",
+            "keywords": ["play", "music", "song", "listen"],
+            "parameters": {
+                "song_name": "extract from user input (e.g., 'play blue' -> 'blue')"
+            },
+            "example_input": "play the song blue",
+            "example_output": {
+                "action": "play_song",
+                "song_name": "blue"
+            }
+        },
+        {
+            "action_name": "search_google",
+            "description": "User wants to search on google",
+            "keywords": ["google", "search", "look up", "find"],
+            "parameters": {
+                "search": "extract search query from user input"
+            },
+            "example_input": "search google for python tutorials",
+            "example_output": {
+                "action": "search_google",
+                "search": "python tutorials"
+            }
+        },
+        {
+            "action_name": "get_time",
+            "description": "User wants to know the current time",
+            "keywords": ["time", "what time", "clock"],
+            "parameters": {},
+            "example_input": "what time is it",
+            "example_output": {
+                "action": "get_time"
+            }
+        },
+        {
+            "action_name": "get_weather",
+            "description": "User wants to know the weather",
+            "keywords": ["weather", "temperature", "forecast"],
+            "parameters": {
+                "location": "extract location from user input, None if not specified"
+            },
+            "example_input": "what's the weather",
+            "example_output": {
+                "action": "get_weather",
+                "location": null
+            }
+        },
+        {
+            "action_name": "open_application",
+            "description": "User wants to open an application",
+            "keywords": ["open", "launch", "start"],
+            "parameters": {
+                "app_name": "extract application name from user input"
+            },
+            "example_input": "open spotify",
+            "example_output": {
+                "action": "open_application",
+                "app_name": "spotify"
+            }
+        },
+        {
+            "action_name":"ask_ai",
+            "description":"user what to ask ai somthing",
+            "keywords":["what is","where","who","how"],
+            "parameters":{
+                "question":"this is what the user is trying to ask ai"
+            },
+            "example_input": "how many people live on the moon",
+            "example_output": {
+                "action": "ask_ai",
+                "question": "how many people live on the moon "
+            }
+        }
+    ],
+
+    "response_format": {
+        "description": "Format for AI to return actions",
+        "with_parameters": {
+            "action": "action_name",
+            "parameter_name": "extracted_value"
+        },
+        "without_parameters": {
+            "action": "action_name"
+        },
+        "no_action": {
+            "action": "none"
+        }
+    }
+}

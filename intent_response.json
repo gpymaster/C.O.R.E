@@ -1,0 +1,6 @@
+{
+  "action": "play_song",
+  "parameters": {
+    "song_name": "earth_to_sun"
+  }
+}
