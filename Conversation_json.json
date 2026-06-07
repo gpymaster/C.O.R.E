@@ -1,0 +1,6 @@
+{
+  "action": "ask_ai",
+  "parameters": {
+    "question": "what is pi and its square root"
+  }
+}

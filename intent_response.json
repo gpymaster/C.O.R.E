@@ -1,6 +1,6 @@
 {
-  "action": "play_song",
+  "action": "ask_ai",
   "parameters": {
-    "song_name": "earth_to_sun"
+    "question": "how are u today"
   }
 }

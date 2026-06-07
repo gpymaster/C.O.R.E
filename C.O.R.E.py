@@ -37,7 +37,7 @@ import _asyncio
 from Weather_api import *
 
 
-
+timeout_count = 0
 # Initialize speech recognizer
 recognizer = sr.Recognizer()
 
@@ -106,12 +106,11 @@ class history:
         with open(History_file_path, "r", encoding="utf-8") as f:
             data = json.load(f)
             data['history'].append(text)
-            return 'added to history'
-    def save():
-        with open(History_file_path, "r", encoding="utf-8") as f:
-            data = json.load(f)
         with open(History_file_path, 'w') as f:
             json.dump(data, f, indent=2)
+        return 'added to history'
+    def save():
+        pass
     
 class action_json:
     def read():
@@ -119,19 +118,17 @@ class action_json:
             data = json.load(f)
             return data['actions'],data['response_format']
         
-        # hello this is a new bracnch to see if this works
-
-
 
 def listen():
-    global last_interaction_time
+    #global last_interaction_time
     with sr.Microphone() as source:
         recognizer.adjust_for_ambient_noise(source)
-        print('Listening')
+        print('Listening.....')
         try:
-            audio = recognizer.listen(source, timeout=SESSION_TIMEOUT)
+            audio = recognizer.listen(source)
             User_input = recognizer.recognize_google(audio).lower()
-            last_interaction_time = time.time()  # Update last interaction time
+            print(f'Heard: {User_input}')
+
             Intent(User_input)
             return True  # Successfully heard something
 
@@ -139,29 +136,78 @@ def listen():
             print('Session timeout - no speech detected')
             return False  # Timeout occurred
         except sr.UnknownValueError:
-            print('I could not understand you, try again....')
-            last_interaction_time = time.time()  # Reset timer even on unclear speech
-            return True  # Keep session active
+            print('I could not understand you, try again....') 
+            timeout_count =+ 1
+            print(f'add to timout count. whe it reaches 10. it will go into stand by mode')
+            print('='*30)
+            print(f'count: {timeout_count}')
+            listen()
+         
 
-            #Intent(User_input)
 
+
+from llama_text_ai import *
 def Intent(user_input):
-    # Get intent name from Wit.ai
-    intent_name = get_intent(user_input)
+    # Get intent name from Ollama
 
-    print(f"\nDetected Intent: {intent_name}")
+    prompt = f"""Analyze the user's request and return a JSON response with the correct action and parameters.
 
-    # Create intent JSON structure
-    intent_json = {"action": intent_name, "parameters": None}
+IMPORTANT DISTINCTIONS:
+- search_google: ONLY use when the user explicitly asks to "search google", "look up", "google", or "find on google"
+- ask_ai: Use for ALL conversation, knowledge questions, reasoning, discussion, and general queries
+
+Available actions and what they do:
+- search_google: Search for information on Google. Use ONLY when user explicitly requests a Google search.
+  Requires: 'search' parameter with the search query.
+  EXAMPLES: "search google for the weather", "look up flights to NYC", "google best restaurants"
+
+- ask_ai: Answer questions using AI knowledge, have conversations, provide reasoning and explanations.
+  Use this for knowledge-based questions, discussions, reasoning, and conversational responses.
+  Requires: 'question' parameter with the question to ask.
+  EXAMPLES: "how many dogs are in california", "what is quantum physics", "tell me about history", "how do I cook pasta"
+
+- play_song: Play a song. Requires parameter 'song_name' with the name of the song.
+- get_time: Get the current time. No parameters needed.
+- get_weather: Get the current weather forecast. No parameters needed.
+
+User request: "{user_input}"
+
+DECISION RULE:
+1. If user explicitly mentions "google", "search", "look up", or "web search" → use search_google
+2. Otherwise → use ask_ai for knowledge, reasoning, conversation, or general questions
+
+Respond ONLY with valid JSON in this format, no other text:
+{{
+  "action": "one of: search_google, play_song, get_time, get_weather, ask_ai",
+  "parameters": null or {{"key": "value"}} if the action needs parameters
+}}"""
+
+    response = ask_ollama(prompt)
+
+    # Extract JSON from response
+    try:
+        intent_json = json.loads(response)
+    except json.JSONDecodeError:
+        # If JSON parsing fails, try to extract JSON from the response
+        import re
+        json_match = re.search(r'\{.*\}', response, re.DOTALL)
+        if json_match:
+            try:
+                intent_json = json.loads(json_match.group())
+            except:
+                intent_json = {"action": "ask_ai", "parameters": {"question": user_input}}
+        else:
+            intent_json = {"action": "ask_ai", "parameters": {"question": user_input}}
+
+    print(f"\nDetected Intent: {intent_json}")
 
     # Save to JSON file
     intent_file_path = '/Users/graysonkeenan/Desktop/C.O.R.E/intent_response.json'
     with open(intent_file_path, 'w') as f:
         json.dump(intent_json, f, indent=2)
     print(f"Intent saved to: {intent_file_path}")
-
     Understand_intent(intent_json)
-    return intent_json
+from llama_text_no_history import *
 
 def Understand_intent(intent_data):
     """Execute actions based on the detected intent"""
@@ -171,21 +217,18 @@ def Understand_intent(intent_data):
         if response['parameters'] and 'search' in response['parameters']:
             print('working....')
             pywhatkit.search(response['parameters']['search'])
-        else:
-            speak("What would you like me to search for?")
 
     if 'play_song' in response['action']:
         if response['parameters'] and 'song_name' in response['parameters']:
             text = response['parameters']['song_name']
             print(f'pretending to play song: {text}')
             # #end-todo
-            # Add function to actually play a song
-        else:
-            speak("What song would you like me to play?")
+            # Add function to actually play a song here
 
     if 'get_time' in response['action']:
         import datetime
-        now = datetime.datetime.now()
+        from zoneinfo import ZoneInfo
+        now = datetime.datetime.now(ZoneInfo("America/Los_Angeles"))
         formatted_time_12hr = now.strftime("%I:%M:%S %p")
         speak(f"The current time is {formatted_time_12hr}")
 
@@ -195,18 +238,19 @@ def Understand_intent(intent_data):
 
     if 'ask_ai' in response['action']:
         if response['parameters'] and 'question' in response['parameters']:
-            answer = ask_ollama(response['parameters']['question'])
-            print(answer)
-        else:
-            speak("I didn't catch your question. Could you please repeat that?")
-    
-    
-
+            print('=>'*100)
+            main_c()
+            print('=>'*100)
 
 
     
+    
+
+from Converstion_action import * 
 
     
+
+
 
 
 def wake_call():
@@ -280,8 +324,7 @@ def wake_call():
 
 
 
-
-Intent("hey jarvis, how any miles are from the earth to the sun")
+Intent('how are u today')
 
 '''
 NOTES:

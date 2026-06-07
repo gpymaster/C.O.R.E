@@ -1,0 +1,223 @@
+{
+    "courses": [
+        {
+            "id": "18063",
+            "name": " AP Pre Calc - Plant",
+            "assignments": [
+                {
+                    "id": "714870",
+                    "name": "p236 1-10,13-16,21,22,25,26,37,41,42,88,89",
+                    "score": null,
+                    "url": "https://acalanes.instructure.com/courses/18063/assignments/714870",
+                    "max_points": 5.0,
+                    "due_date": "2025-10-27T23:00:00Z",
+                    "date_made": "2025-10-22T16:01:10Z",
+                    "submission_types": [
+                        "none"
+                    ],
+                    "Submited": false
+                },
+                {
+                    "id": "715264",
+                    "name": "QUIZ 2.1-2.3",
+                    "score": null,
+                    "url": "https://acalanes.instructure.com/courses/18063/assignments/715264",
+                    "max_points": 30.0,
+                    "due_date": "2025-10-27T23:00:00Z",
+                    "date_made": "2025-10-23T23:32:58Z",
+                    "submission_types": [
+                        "none"
+                    ],
+                    "Submited": false
+                }
+            ]
+        },
+        {
+            "id": "18291",
+            "name": "25-26 ChemInEarthSys - Leslie",
+            "assignments": []
+        },
+        {
+            "id": "18000",
+            "name": "25-26 English 2 - Leishman",
+            "assignments": [
+                {
+                    "id": "714761",
+                    "name": "Active Verbs/Voice Quiz- Requires Respondus LockDown Browser",
+                    "score": null,
+                    "url": "https://acalanes.instructure.com/courses/18000/assignments/714761",
+                    "max_points": 10.0,
+                    "due_date": "2025-10-28T16:00:00Z",
+                    "date_made": "2025-10-21T18:57:06Z",
+                    "submission_types": [
+                        "external_tool"
+                    ],
+                    "Submited": false
+                }
+            ]
+        },
+        {
+            "id": "17994",
+            "name": "25-26 IntroEthnicstud - Tarantino - Fall",
+            "assignments": []
+        },
+        {
+            "id": "18104",
+            "name": "25-26 Latin 2 - Mullowney",
+            "assignments": [
+                {
+                    "id": "709864",
+                    "name": "2.16 Is and Ipse Worksheet",
+                    "score": null,
+                    "url": "https://acalanes.instructure.com/courses/18104/assignments/709864",
+                    "max_points": 5.0,
+                    "due_date": "2025-10-27T22:00:00Z",
+                    "date_made": "2025-09-28T23:49:27Z",
+                    "submission_types": [
+                        "none"
+                    ],
+                    "Submited": false
+                },
+                {
+                    "id": "709865",
+                    "name": "2.17 Quizlet Learn: Theogonia Pars Ultima",
+                    "score": null,
+                    "url": "https://acalanes.instructure.com/courses/18104/assignments/709865",
+                    "max_points": 5.0,
+                    "due_date": "2025-10-27T16:00:00Z",
+                    "date_made": "2025-09-28T23:49:28Z",
+                    "submission_types": [
+                        "none"
+                    ],
+                    "Submited": false
+                },
+                {
+                    "id": "709870",
+                    "name": "2.18 Vocab. Quiz: Theogonia Pars Ultima",
+                    "score": null,
+                    "url": "https://acalanes.instructure.com/courses/18104/assignments/709870",
+                    "max_points": 10.0,
+                    "due_date": "2025-10-29T16:00:00Z",
+                    "date_made": "2025-09-28T23:49:30Z",
+                    "submission_types": [
+                        "none"
+                    ],
+                    "Submited": false
+                }
+            ]
+        },
+        {
+            "id": "18161",
+            "name": "25-26 Physics 1 AP - Sorenson",
+            "assignments": [
+                {
+                    "id": "650935",
+                    "name": "U3 FRQ Practice",
+                    "score": null,
+                    "url": "https://acalanes.instructure.com/courses/18161/assignments/650935",
+                    "max_points": 12.0,
+                    "due_date": "2025-10-31T15:30:00Z",
+                    "date_made": "2025-07-30T17:27:41Z",
+                    "submission_types": [
+                        "online_upload"
+                    ],
+                    "Submited": false
+                },
+                {
+                    "id": "650937",
+                    "name": "U3 PSet #19",
+                    "score": null,
+                    "url": "https://acalanes.instructure.com/courses/18161/assignments/650937",
+                    "max_points": 0.0,
+                    "due_date": "2025-10-27T15:00:00Z",
+                    "date_made": "2025-07-30T17:27:42Z",
+                    "submission_types": [
+                        "none"
+                    ],
+                    "Submited": false
+                },
+                {
+                    "id": "650938",
+                    "name": "U3 PSet #20",
+                    "score": null,
+                    "url": "https://acalanes.instructure.com/courses/18161/assignments/650938",
+                    "max_points": 0.0,
+                    "due_date": "2025-10-29T15:30:00Z",
+                    "date_made": "2025-07-30T17:27:42Z",
+                    "submission_types": [
+                        "none"
+                    ],
+                    "Submited": false
+                },
+                {
+                    "id": "650939",
+                    "name": "U3 PSet #21",
+                    "score": null,
+                    "url": "https://acalanes.instructure.com/courses/18161/assignments/650939",
+                    "max_points": 0.0,
+                    "due_date": "2025-10-31T15:30:00Z",
+                    "date_made": "2025-07-30T17:27:42Z",
+                    "submission_types": [
+                        "none"
+                    ],
+                    "Submited": false
+                },
+                {
+                    "id": "650864",
+                    "name": "\ud83d\udca1U3 L1.5Find the spring constant",
+                    "score": null,
+                    "url": "https://acalanes.instructure.com/courses/18161/assignments/650864",
+                    "max_points": 3.0,
+                    "due_date": "2025-10-29T15:30:00Z",
+                    "date_made": "2025-07-30T17:27:11Z",
+                    "submission_types": [
+                        "online_upload"
+                    ],
+                    "Submited": false
+                },
+                {
+                    "id": "650845",
+                    "name": "\ud83d\udca1 U3L2 Work-Energy Theorem Activity V2",
+                    "score": null,
+                    "url": "https://acalanes.instructure.com/courses/18161/assignments/650845",
+                    "max_points": 4.0,
+                    "due_date": "2025-10-31T15:30:00Z",
+                    "date_made": "2025-07-30T17:27:03Z",
+                    "submission_types": [
+                        "online_upload"
+                    ],
+                    "Submited": false
+                }
+            ]
+        },
+        {
+            "id": "18131",
+            "name": "25-26 WRLD History AP - Ginocchio",
+            "assignments": [
+                {
+                    "id": "711205",
+                    "name": "Ch 7, 8 Test",
+                    "score": null,
+                    "url": "https://acalanes.instructure.com/courses/18131/assignments/711205",
+                    "max_points": 30.0,
+                    "due_date": "2025-10-27T15:00:00Z",
+                    "date_made": "2025-10-03T21:39:18Z",
+                    "submission_types": [
+                        "none"
+                    ],
+                    "Submited": false
+                }
+            ]
+        },
+        {
+            "id": "16077",
+            "name": "MHS Student Information 2024-25",
+            "assignments": []
+        },
+        {
+            "id": "18615",
+            "name": "MHS Student Information 2025-2026",
+            "assignments": []
+        }
+    ]
+}

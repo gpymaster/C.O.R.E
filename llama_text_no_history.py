@@ -40,4 +40,3 @@ def ask_ollama_NH(prompt, model="llama3.2"):
 
 # Usage
 
-

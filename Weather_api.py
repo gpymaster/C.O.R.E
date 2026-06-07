@@ -46,3 +46,5 @@ async def main():
 
 
 
+result = asyncio.run(main())
+print(f"Received result: {result}")
