@@ -1,7 +1,6 @@
-import os
 import requests
 
-WIT_ACCESS_TOKEN = os.getenv("WIT_ACCESS_TOKEN", "")
+WIT_ACCESS_TOKEN = "-----API KEY----"
 WIT_API_URL = "https://api.wit.ai/message?v=20230220&q="
 
 # Function to get intent from Wit.ai

@@ -43,7 +43,7 @@ recognizer = sr.Recognizer()
 
 
 
-api_key = os.getenv("ASSEMBLYAI_API_KEY", "")
+api_key = "-----API KEY----"
 
 # Configuration
 LISTEN_TIMEOUT = 5  # Seconds to wait for speech

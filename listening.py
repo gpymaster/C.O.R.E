@@ -17,7 +17,7 @@ import json
 import os
 
 # API Keys
-api_key = os.getenv("ASSEMBLYAI_API_KEY", "")
+api_key = "-----API KEY----"
 
 
 _context = None
