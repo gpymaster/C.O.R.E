@@ -6,7 +6,7 @@ import subprocess
 
 
 # ====== CONFIG ======
-API_KEY = "16797~n7Zu8BzzQKQ7FHKQEDQZrXDykmrMJ6Vy4cnvm4t8vk6fa7hzJMzHJRvyRLEBz9CV"  # Replace with your new token
+API_KEY = os.getenv("CANVAS_API_KEY", "")  # Set this in your environment instead of hard-coding it
 BASE_URL = "https://acalanes.instructure.com/api/v1"
 OUTPUT_FILE = "/Users/graysonkeenan/Desktop/C.O.R.E/canvas_data.json"
 DESKTOP_PATH = "/Users/graysonkeenan/Desktop"

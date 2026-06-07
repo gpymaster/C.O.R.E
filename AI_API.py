@@ -1,10 +1,9 @@
-#-----API KEY----
 from groq import Groq
 import os
 
 # Initialize Groq client
 client = Groq(
-    api_key="-----API KEY----"  # Replace with your actual API key
+    api_key=os.getenv("GROQ_API_KEY", "")
 )
 
 def chat(user_message, conversation_history=None):

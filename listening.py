@@ -14,9 +14,10 @@ import logging
 from typing import Type
 import requests
 import json
+import os
 
 # API Keys
-api_key = "b23931700ac540ba96cbe014e532bdb2"
+api_key = os.getenv("ASSEMBLYAI_API_KEY", "")
 
 
 _context = None
